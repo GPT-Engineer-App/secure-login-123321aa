@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChakraProvider, Box, VStack, Input, InputGroup, InputRightElement, Button, Heading, useToast } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -7,6 +8,7 @@ const Index = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const toast = useToast();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (username === "Fia" && password === "123321Aa") {
@@ -17,6 +19,7 @@ const Index = () => {
         duration: 9000,
         isClosable: true,
       });
+      navigate("/notes");
     } else {
       toast({
         title: "Login fehlgeschlagen.",
